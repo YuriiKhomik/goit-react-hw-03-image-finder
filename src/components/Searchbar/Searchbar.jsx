@@ -1,13 +1,18 @@
 import { Formik } from 'formik';
+import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
 import { Header, Input, SearchForm, Button, ButtonIcon } from './styled';
 
 const initialValues = {
-  search: '',
+  searchQuery: '',
 };
 
-export const Searchbar = () => {
-  const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
+export const Searchbar = ({ onSubmit }) => {
+  const handleSubmit = ({ searchQuery }, { resetForm }) => {
+    if (searchQuery.trim() === '') {
+      return toast.error('Type something');
+    }
+    onSubmit(searchQuery);
     resetForm();
   };
   return (
@@ -19,7 +24,7 @@ export const Searchbar = () => {
           </Button>
           <Input
             type="text"
-            name="search"
+            name="searchQuery"
             placeholder="Search images and photos"
             autoFocus={true}
           />
@@ -27,4 +32,8 @@ export const Searchbar = () => {
       </Formik>
     </Header>
   );
+};
+
+Searchbar.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };
