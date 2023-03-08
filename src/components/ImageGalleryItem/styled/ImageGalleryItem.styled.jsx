@@ -16,3 +16,10 @@ export const Image = styled.img`
     cursor: zoom-in;
   }
 `;
+
+export const LargeImage = styled.img`
+  width: 85vw;
+  height: 85vh;
+  object-fit: cover;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+`;

@@ -7,7 +7,6 @@ import { Searchbar } from './Searchbar';
 import { ImageGallery } from './ImageGallery';
 import { Component } from 'react';
 import { Button } from './Button';
-import { Modal } from './Modal';
 
 export class App extends Component {
   state = {
@@ -15,7 +14,6 @@ export class App extends Component {
     searchQuery: '',
     page: 1,
     isLoading: false,
-    showModal: false,
   };
 
   nextItems = JSON.stringify(this.state.items);
@@ -48,14 +46,8 @@ export class App extends Component {
     this.setState(prevState => ({ page: prevState.page + 1, isLoading: true }));
   };
 
-  toggleModal = () => {
-    this.setState(({ showModal }) => ({
-      showModal: !showModal,
-    }));
-  };
-
   render() {
-    const { items, isLoading, showModal } = this.state;
+    const { items, isLoading } = this.state;
 
     // if (status === 'idle') {
     //   return (
@@ -133,7 +125,6 @@ export class App extends Component {
             />
           </Box>
         )}
-        {showModal && <Modal onClose={this.toggleModal}></Modal>}
         <ToastContainer
           position="top-right"
           autoClose={3000}
