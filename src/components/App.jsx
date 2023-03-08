@@ -114,7 +114,7 @@ export class App extends Component {
         <ImageGallery items={items} />
         {items.length !== 0 && <Button onClick={this.handleLoadMore} />}
         {isLoading && (
-          <Box position="absolute" top="50%" right="50%">
+          <Box position="fixed" top="46%" right="46%">
             <RotatingLines
               strokeColor="grey"
               strokeWidth="5"
@@ -141,9 +141,3 @@ export class App extends Component {
     );
   }
 }
-
-// const get = async () => {
-//   const images = await getImages();
-//   console.log(images);
-//   return images;
-// };
