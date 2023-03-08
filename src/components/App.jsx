@@ -1,20 +1,16 @@
-import { getImages } from 'services';
+// import { getImages } from 'services';
+import { Searchbar } from './Searchbar';
 
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    >
-      React homework template
+    <div className="App">
+      <Searchbar />
     </div>
   );
 };
 
-getImages().then(console.log);
+// const get = async () => {
+//   const images = await getImages();
+//   console.log(images);
+//   return images;
+// };
