@@ -39,7 +39,7 @@ export class App extends Component {
   }
 
   handleFormSubmit = searchQuery => {
-    this.setState({ searchQuery, items: [] });
+    this.setState({ searchQuery, items: [], page: 1 });
   };
 
   handleLoadMore = async () => {
@@ -108,6 +108,7 @@ export class App extends Component {
     //     </div>
     //   );
     // }
+
     return (
       <div className="App">
         <Searchbar onSubmit={this.handleFormSubmit} />
